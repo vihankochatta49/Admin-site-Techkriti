@@ -1,8 +1,14 @@
-<a href="/create-event">New Event</a>
-<% data.forEach(function(e) {%>
-<h1><%=e.title%></h1>
-<h3>Points: <%=e.points%></h3>
-<h3>Start-Date: <%=e.startDate%></h3>
-<h3>End-Date: <%=e.endDate%></h3>
-<p>Description: <%=e.description%></p>
-<%}) %>
+<body>
+  <a href="/create-event">New Event</a>
+  <a href="/leaderboard">Leader Board</a>
+  <% data.forEach(function(e) {%>
+  <h1><%=e.title%></h1>
+  <h3>Points: <%=e.points%></h3>
+  <h3>Start-Date: <%=e.startedAt%></h3>
+  <h3>End-Date: <%=e.endedAt%></h3>
+  <p>Description: <%=e.description%></p>
+  <form action="/<%= e.id %>?_method=DELETE" method="POST" class="delete">
+    <button type="submit">Delete</button>
+  </form>
+  <%}) %>
+</body>

@@ -1,0 +1,20 @@
+<% data.forEach(function(e) {%>
+<div>
+  <h1><%= e.name %></h1>
+  <h5><%= e.title%></h5>
+  <h3>Points: <%= e.points%></h3>
+  <img
+    src="data:<%= e.contentType %>;base64,<%= e.imageBase64 %>"
+    height="250"
+    width="250"
+  />
+  <p>Give -1 if proof is not ok</p>
+  <form
+    action="/update-points/<%=e.name%>/<%=e.title%>?_method=PUT"
+    method="post"
+  >
+    <input type="number" placeholder="points" name="points" required />
+    <button type="submit">Update</button>
+  </form>
+</div>
+<%})%>
