@@ -1,4 +1,5 @@
 const express = require("express");
+const eventsModel = require(".././routes/eventModel");
 const route = express.Router();
 
 //for creating new event
