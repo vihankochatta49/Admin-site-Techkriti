@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const eventsModel = require("./routes/eventModel");
 const app = express();
-const port = 4500;
+const port = process.env.PORT || 4500;
 
 //view engine
 app.set("view engine", "ejs");
@@ -16,7 +16,7 @@ app.use(methodOverride("_method"));
 
 //database connection
 mongoose
-  .connect("mongodb://localhost:27017/revise")
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/revise")
   .then(() => {
     console.log("connection successfull...");
   })
